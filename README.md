@@ -1,2 +1,2 @@
 # dyode
-A low-cost data diode
+A simple data diode
