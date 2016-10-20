@@ -6,14 +6,16 @@ import yaml
 import pyinotify
 import logging
 from math import floor
+import subprocess
 import multiprocessing
+import shlex
 import asyncore
 import modbus
 import os
 import screen
 
 # Max bitrate, empirical, should be a bit less than 100 but isn't
-MAX_BITRATE = 20
+MAX_BITRATE = 8
 
 # Logging
 logging.basicConfig()
@@ -67,8 +69,8 @@ if __name__ == '__main__':
     # Static ARP
     log.info('Dyode input ip : %s (%s)' % (config['dyode_in']['ip'], config['dyode_in']['mac']))
     log.info('Dyode output ip : %s (%s)' % (config['dyode_out']['ip'], config['dyode_out']['mac']))
-    #p = subprocess.Popen(shlex.split(arp -s ' + config['dyode_out']['ip'] + ' ' + config['dyode_out']['mac']), shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    #output, err = p.communicate()
+    p = subprocess.Popen(shlex.split('arp -s ' + config['dyode_out']['ip'] + ' ' + config['dyode_out']['mac']), shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output, err = p.communicate()
 
     # Number of modules (needed to calculate bitrate)
     # Only works for file transfer using udpcast

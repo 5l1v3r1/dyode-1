@@ -18,7 +18,6 @@ MAX_BITRATE = 20
 
 # Logging
 logging.basicConfig()
-global log
 log = logging.getLogger()
 log.setLevel(logging.DEBUG)
 
