@@ -1,6 +1,14 @@
 # DYODE : Do Your Own DyodE
 A low-cost (~200 €) data diode aimed at Industrial Control Systems.
 
+Important information
+=====================
+
+Latest version of this project can be found at [Wavestone's Github repo](https://github.com/wavestone-cdt/dyode)
+This repository will stay as an archive of the first step of the project.
+---
+
+
 ## Hardware
 We use very standard hardware:
 * 3 Copper-Optical converters
